@@ -1632,6 +1632,7 @@
     <Content Include="Scripts\plugins\bootbox\package.json" />
     <Content Include="Scripts\plugins\bootbox\README.md" />
     <Content Include="Views\Account\Changepassword.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1643,7 +1644,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\" />
     <Folder Include="Scripts\spa\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
