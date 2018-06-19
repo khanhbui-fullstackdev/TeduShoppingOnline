@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap v3.3.7-->
+    <link href="~/Scripts/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--theme-style-->
+    <link href="~/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Assets/Client/css/custom.css" rel="stylesheet" />
+    <link href="~/Assets/Client/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/modify.css" rel="stylesheet" />
+    <!--//theme-style-->
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!--jQuery UI - v1.12.1-->
+    <link href="~/Scripts/plugins/jquery-ui/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Scripts/plugins/jquery-ui/themes/ui-lightness/theme.css" rel="stylesheet" />
+    <!--jQuery v1.7.1-->
+    @*<script src="~/Assets/Client/js/jquery.min.js"></script>*@
+
+    @RenderSection("CategoryStyle", required: false)
+
+    <style>
+        .ui-autocomplete {
+            z-index: 1000
+        }
+    </style>
+</head>
+<body>
+    <!--Starting render partial view header-->
+    @{Html.RenderAction("Header", "Home"); }
+    <!--Ending render partial view header-->
+    <!--Starting container-->
+    <div class="container">
+        @RenderBody()
+        <!--Starting render partial view Category-->
+        @{ Html.RenderAction("Category", "Home"); }
+        <!--Ending render partial view Category-->
+    </div>
+    <!--End container-->
+    <!--Starting render footer partial view-->
+    @{ Html.RenderAction("Footer", "Home"); }
+    <!--Ending render footer partial view-->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--jQuery v3.3.1 -->
+    @*<script src="~/Scripts/plugins/jquery/dist/jquery.min.js"></script>*@
+
+
+    <!--jQuery v1.9.1-->
+    <script src="~/Scripts/plugins/jquery/oldversion-1.9.1/jquery.min.js"></script>
+    <!--jQuery UI - v1.12.1-->
+    <script src="~/Scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+
+    <!--bootstrap v3.3.7-->
+    <script src="~/Scripts/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--bootbox.js v4.4.0-->
+    <script src="~/Scripts/plugins/bootbox/bootbox.min.js"></script>
+    <script src="~/Scripts/plugins/mustache/mustache.min.js"></script>
+    <script src="~/Scripts/plugins/numeral/min/numeral.min.js"></script>
+
+    <!--common.js-->
+    <script src="~/Assets/Client/js/common.js"></script>
+
+    <!--Starting render javascript for Category page-->
+    @RenderSection("CategoryJS", required: false)
+    <!--Ending render javascript for Category page-->
+    <!--Starting render javascript for Slide page-->
+    @RenderSection("SlideJS", required: false)
+    <!--Ending render javascript for Slide page-->
+    <!--Starting render javascript for Product Detail page-->
+    @RenderSection("ProductDetailJS", required: false)
+    <!--Ending render javascript for Product Detail page-->
+    <!--Starting render javascript for ContactDetail Detail page-->
+    @RenderSection("ContactDetailJS", required: false)
+    <!--Ending render javascript for ContactDetail Detail page-->
+    <!--Starting render javascript for Register page-->
+    @RenderSection("RegisterJS", required: false)
+    <!--Ending render javascript for Register  page-->
+    <!--Starting render javascript for Shopping Cart page-->
+    @RenderSection("ShoppingCartJS", required: false)
+    <!--Ending render javascript for Shopping Cart  page-->
+    <!--Starting render javascript for Update Info page-->
+    @RenderSection("InfoJS", required: false)
+    <!--Ending render javascript for Update Info  page-->
+    <!--Starting render javascript for Forgot Password page-->
+    @RenderSection("ForgotPasswordJS", required: false)
+    <!--Ending render javascript for Forgot Password page-->
+    <!--Starting render javascript for Change Password page-->
+    @RenderSection("ChangePasswordJS", required: false)
+    <!--Ending render javascript for Change Password page-->
+</body>
+</html>

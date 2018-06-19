@@ -1,0 +1,115 @@
+﻿@model TeduShopingOnline.Web.ViewModels.FeedBackViewModel
+@using BotDetect.Web.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var contactDetail = Model.ContactDetailViewModel;
+    var feedBack = Model;
+
+    var successMessage = (string)ViewBag.SuccessMessage;
+}
+
+<style type="text/css">
+
+    #map {
+        height: 600px;
+    }
+</style>
+
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+<input id="hiddenContactDetail" type="hidden" />
+
+<div class="main">
+    <div class="reservation_top">
+        <div class="contact_right">
+            <h3>Contact Form</h3>
+            <div class="contact-form">
+                @using (Html.BeginForm("SendFeedBack", "ContactDetail", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    if (!string.IsNullOrEmpty(successMessage))
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <strong id="successMessage">Thank you for sending us your request. We will reply to you as soon as posible!</strong>
+                        </div>
+                    }
+                    
+                    @Html.TextBoxFor(model => model.Name, new { @class = "textbox", @placeholder = "Name", @id = "feedBackName" });
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "error" });
+
+                    @Html.TextBoxFor(model => model.Email, new { @class = "textbox", @placeholder = "Email", @id = "feedBackEmail" });
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "error" });
+
+
+                    @Html.TextAreaFor(model => model.Message, new { @placeholder = "Message", @id = "feedBackMessage" });
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "error" });
+
+                    MvcCaptcha ContactDetailCaptcha = new MvcCaptcha("ContactDetailCaptcha");
+                    @Html.Captcha(ContactDetailCaptcha);
+                    @Html.TextBox("CaptchaCode");
+                    <input type="submit" value="Send" id="btnSendFeedBack" />
+                    <div class="clearfix"> </div>
+                }
+
+                <address class="address">
+                    <p>
+                        @contactDetail.Name
+                        <br />
+                        @contactDetail.Address
+                    </p>
+                    <dl>
+                        <dt> </dt>
+                        <dd>Phone number:<span> @contactDetail.PhoneNumber</span></dd>
+                        <dd>Telephone:<span> @contactDetail.Telephone</span></dd>
+                        <dd>FAX: <span>@contactDetail.Fax</span></dd>
+                        <dd>E-mail:&nbsp; <a href="mailto:@(contactDetail.Email)">@contactDetail.Email</a></dd>
+                    </dl>
+                    <div id="map"></div>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ContactDetailJS{
+
+    <script type="text/javascript">
+        function initMap() {
+            var uluru = { lat: @contactDetail.Latitude, lng: @contactDetail.Longitude};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 52,
+                center: uluru
+            });
+            var contentString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">ASP.NET Web MVC5 + API</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Technical Utilized:</b>MVC5, EntityFramework6, CodeFirst, Design Patter: Repository Base</p>' +
+                'UnitOfWork, WebAPI + Angularjs1, RoutingConfig, Dependency Injection, Auto Mapping, Ajax (search), SOLID, ' +
+                'Mail SMTP'+
+                '</div>' +
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD58YsV657ZedRDvXxef8PqH9Hm-NzKLnM&callback=initMap">
+    </script>
+
+    <script src="~/Assets/Client/js/controllers/feedBack.js"></script>
+}

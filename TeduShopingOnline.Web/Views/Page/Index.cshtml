@@ -1,0 +1,13 @@
+﻿@model TeduShopingOnline.Web.ViewModels.PageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="single_top">
+    <div class="single_grid">
+        <h1>@Model.Name</h1>
+        @Html.Raw(Model.Content)
+        <div class="clearfix"> </div>
+    </div>
+</div>

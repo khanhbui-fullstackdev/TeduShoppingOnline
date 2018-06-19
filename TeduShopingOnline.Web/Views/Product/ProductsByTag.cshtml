@@ -1,0 +1,117 @@
+﻿@model TeduShopingOnline.Web.Infrastructure.Cores.PaginationSet<TeduShopingOnline.Web.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "ProductsByTag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var products = Model.Items;
+    var position = 0;
+
+    var tagViewModel = (TeduShopingOnline.Web.ViewModels.TagViewModel)ViewBag.TagViewModel;
+}
+
+<div class="women-product">
+    <!--Searching area-->
+    <div class="w_content">
+        <div class="women">
+            <a href="/tag/@tagViewModel.ID"><h4>@tagViewModel.Name - <span>@products.Count()</span> </h4></a>
+            <ul class="w_nav">
+                <li>Sort : </li>
+                <li><a class="active" href="?page=@Model.Page&sort=popular">popular</a></li> |
+                <li><a href="?page=@Model.Page&sort=new">new </a></li> |
+                <li><a href="?page=@Model.Page&sort=discount">discount</a></li> |
+                <li><a href="?page=@Model.Page&sort=price">price: Low High </a></li>
+                <div class="clearfix"> </div>
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="div-lastest-product"></div>
+    @if (products.Count() != 0)
+    {
+        <!-- grids_of_4 -->
+        <div class="grid-product">
+            @foreach (var product in products)
+            {
+                position++;
+                var productDetailUrl = "/product-detail/" + product.Alias.ToLower() + "/" + product.Id;
+
+                <div class="product-grid">
+                    <div class="content_box">
+                        <a href="@productDetailUrl">
+                        </a><div class="left-grid-view grid-view-left">
+                            <a href="@productDetailUrl">
+                                <img src="@product.Image" class="img-responsive watch-right" alt="@product.Alias.ToLower()">
+                                <div class="mask">
+                                    <div class="info">Quick View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <h4><a href="#">@product.Name</a></h4>
+                        <p>@product.Description</p>
+                        @string.Format("{0:0,0}₫", product.Price)
+                    </div>
+                </div>
+                if (position % 3 == 0)
+                {
+                    <div class="div-lastest-product"></div>
+                }
+            }
+            <div class="clearfix"> </div>
+            @if (Model.TotalPages > 1)
+            {
+                //Create numberic links
+                var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                <nav>
+                    <ul class="pagination">
+                        @if (Model.Page > 1)
+                        {
+                            <li>
+                                <a href="?page=1" aria-label="First">
+                                    <i class="fa">First Page</i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                    <i class="fa">Previous Page</i>
+                                </a>
+                            </li>
+                        }
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (Model.Page == i)
+                            {
+                                <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                            }
+                        }
+                        @if (Model.Page < Model.TotalPages)
+                        {
+                            <li>
+                                <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                    <i class="fa">Next Page</i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?page=@Model.TotalPages" aria-label="Last">
+                                    <i class="fa">Last Page</i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center">The product doesn't exist</div>
+    }
+</div>
+

@@ -1,0 +1,29 @@
+﻿<script id="template-email" type="x-tmpl-mustache">
+    <div>
+        <table border="1" style="border-collapse:collapse">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="tb-order-detail-template">
+                <tr class="tr-order-detail">
+                    <td>{{OrderId}}</td>
+                    <td>{{ProductId}}</td>
+                    <td>{{ProductName}}</td>
+                    <td>{{Quantity}}</td>
+                    <td>{{Price}}</td>
+                    <td>{{Total}}</td>
+                </tr>
+                <tr class="tr-order-detail">
+                    <td colspan="5">Sum:{{Sum}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

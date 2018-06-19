@@ -1,0 +1,102 @@
+﻿@model TeduShopingOnline.Web.ViewModels.AccountInfoViewModel
+
+
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section InfoJS {
+    <link href="~/Scripts/plugins/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Assets/Client/js/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="~/Scripts/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Scripts/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+
+    <script src="~/Assets/Client/js/controllers/updateInfo.js"></script>
+}
+
+<div class="register">
+    <form method="post" id="frm_updateAccountInfo">
+        <div class="register-top-grid">
+            <h3>Your account information</h3>
+            <div class="mation">
+                <span>First name<label>*</label></span>
+                <input type="text" placeholder="First name" id="txtFirstName" name="firstName" />
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger error-message", })
+
+                <span>Last name<label>*</label></span>
+                <input type="text" placeholder="Last name" id="txtLastName" name="lastName" />
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger error-message", })
+
+                <span>Identity number<label>*</label></span>
+                <input type="text" placeholder="Identity number" id="txtIdentityNumber" name="identityNumber" />
+                @Html.ValidationMessageFor(model => model.IdentityNumber, "", new { @class = "text-danger error-message", })
+
+                <span>Birthday<label>*</label></span>
+                <input type="text" placeholder="Birthday" id="birthday-datepicker" name="birthday" class="form-control datepicker" />
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger error-message", })
+
+                <span>Email<label>*</label></span>
+                <input type="text" placeholder="Email" id="txtEmail" name="email" />
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger error-message", })
+
+                <span>Address<label>*</label></span>
+                <input type="text" placeholder="Address" id="txtAddress" name="address" />
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger error-message", })
+
+                <span>Phone number<label>*</label></span>
+                <input type="text" placeholder="Phone number" id="txtPhoneNumber" name="phoneNumber" />
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger error-message", })
+
+                <span>User name<label>*</label></span>
+                <input type="text" placeholder="User name" id="txtUserName" name="userName" />
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger error-message", })
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </form>
+    <div class="clearfix"> </div>
+    <div class="register-but">
+        <input type="submit" value="Update account information" id="btnUpdateInfo" />
+        <!-- Trigger the modal with a button -->
+        <input type="submit" id="btnOpenModal" value="Change password">
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="register-top-grid">
+        <!-- Modal -->
+        <div class="modal fade" id="modalChangePassword" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Change password</h4>
+                    </div>
+                    <form id="frm_changePassword" method="post">
+                        <div class="modal-body">
+                            <span>Your old password<label></label></span>
+                            <input type="password" placeholder="Old password" id="txtOldPassword" name="oldPassword" />
+                            @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger error-message", })
+
+                            <span>Your new password<label></label></span>
+                            <input type="password" placeholder="New password" id="txtNewPassword" name="newPassword" />
+                            @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger error-message", })
+
+                            <span>Repeat your new password<label></label></span>
+                            <input type="password" placeholder="Repeat new password" id="txtRepeatNewPassword" name="repeatNewPassword" />
+                            @Html.ValidationMessageFor(model => model.RepeatNewPassword, "", new { @class = "text-danger error-message", })
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" id="btnChangePassword">Change password</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

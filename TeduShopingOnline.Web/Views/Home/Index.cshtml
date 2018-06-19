@@ -1,0 +1,216 @@
+﻿@model TeduShopingOnline.Web.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var homeViewModel = Model;
+
+    var popularProducts = Model.PopularProductsViewModel.ToList();
+    var lastPopularProductIndex = popularProducts.Count() - 1;
+
+    var lastestProducts = Model.LastestProductsViewModel.ToList();
+    var countLastestItem = 0;
+
+    var lastestProductsForMen = Model.LastestProductsForMenViewModel.ToList();
+    var countLastestItemForMen = 0;
+
+    var lastestProductsForWomen = Model.LastestProductsForWomenViewModel.ToList();
+    var countLastestItemForWomen = 0;
+}
+
+
+
+<!--Starting shoes grid-->
+<div class="shoes-grid">
+    @{Html.RenderAction("Slide", "Home"); }
+
+    <div class="shoes-grid-left">
+        @for (int index = 0; index < popularProducts.Count(); index++)
+        {
+            <a href="single.html">
+                <div class="col-md-6 con-sed-grid @(index == lastPopularProductIndex?"sed-left-top":string.Empty)">
+                    <div class=" elit-grid">
+                        <h4>@popularProducts[index].Name</h4>
+                        <label>FOR ALL PURCHASE VALUE</label>
+                        <p>@popularProducts[index].Description</p>
+                        <span class="on-get">GET NOW</span>
+                    </div>
+                    <img class="img-responsive shoe-left" src="@popularProducts[index].Image" alt=" ">
+                    <div class="clearfix"> </div>
+                </div>
+            </a>
+        }
+    </div>
+
+    <div class="products">
+        <h5 class="latest-product">LATEST PRODUCTS</h5>
+        <a class="view-all" href="/products">VIEW ALL<span> </span></a>
+    </div>
+
+    <div class="product-left">
+        @for (int index = 0; index < lastestProducts.Count(); index++)
+        {
+            var productDetailUrl = "/product-detail/" + lastestProducts[index].Alias.ToLower() + "/" + lastestProducts[index].Id;
+            countLastestItem++;
+
+            <div class="col-md-4 chain-grid @(countLastestItem % 3 == 0 ? "sed-left-top" : string.Empty)">
+                <a href="@productDetailUrl">
+                    <img class="img-responsive chain" src="@lastestProducts[index].Image" alt=" ">
+                </a>
+                <span class="star"> </span>
+                <div class="grid-chain-bottom">
+                    <h6><a href="single.html">@lastestProducts[index].Name</a></h6>
+                    <div class="star-price">
+                        <div class="dolor-grid">
+                            @if (lastestProducts[index].Price.HasValue || lastestProducts[index].PromotionPrice.HasValue)
+                            {
+                                <span class="actual">
+                                    <strong>@string.Format("{0:0,0}₫", lastestProducts[index].Price)</strong>
+                                </span>
+                            }
+                            <span class="rating">
+                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                <label for="rating-input-1-5" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                <label for="rating-input-1-4" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                <label for="rating-input-1-3" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                <label for="rating-input-1-2" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                <label for="rating-input-1-1" class="rating-star"> </label>
+                            </span>
+                        </div>
+                        <a class="now-get get-cart btnAddToCart" href="#" data-id="@lastestProducts[index].Id">ADD TO CART</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            if (countLastestItem % 3 == 0)
+            {
+                <div class="products" style="border:none">
+                    <h5 class="latest-product"></h5>
+                    <a class="" href="/products"><span> </span></a>
+                </div>
+            }
+        }
+
+        <div class="products">
+            <h5 class="latest-product">LATEST PRODUCTS FOR MEN</h5>
+            <a class="view-all" href="/products/gender/men">VIEW ALL<span> </span></a>
+        </div>
+
+        @for (int index = 0; index < lastestProductsForMen.Count; index++)
+        {
+            var productDetailUrl = "/product-detail/" + lastestProductsForMen[index].Alias.ToLower() + "/" + lastestProductsForMen[index].Id;
+            countLastestItemForMen++;
+
+            <div class="col-md-4 chain-grid @(countLastestItem % 3 == 0 ? "sed-left-top" : string.Empty)">
+                <a href="@productDetailUrl">
+                    <img class="img-responsive chain" src="@lastestProductsForMen[index].Image" alt=" ">
+                </a>
+                <span class="star"> </span>
+                <div class="grid-chain-bottom">
+                    <h6><a href="single.html">@lastestProductsForMen[index].Name</a></h6>
+                    <div class="star-price">
+                        <div class="dolor-grid">
+                            @if (lastestProductsForMen[index].Price.HasValue && lastestProductsForMen[index].PromotionPrice.HasValue)
+                            {
+                                <span class="actual">
+                                    <strong>@string.Format("{0:0,0}₫", lastestProductsForMen[index].PromotionPrice)</strong>
+                                </span>
+                                <span class="reducedfrom">
+                                    <strong>@string.Format("{0:0,0}₫", lastestProductsForMen[index].Price)</strong>
+                                </span>
+                            }
+                            <span class="rating">
+                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                <label for="rating-input-1-5" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                <label for="rating-input-1-4" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                <label for="rating-input-1-3" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                <label for="rating-input-1-2" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                <label for="rating-input-1-1" class="rating-star"> </label>
+                            </span>
+                        </div>
+                        <a class="now-get get-cart btnAddToCart" href="#" data-id="@lastestProductsForMen[index].Id">ADD TO CART</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            if (countLastestItemForMen % 3 == 0)
+            {
+                <div class="products" style="border:none">
+                    <h5 class="latest-product"></h5>
+                    <a class="" href="/products/gender/men"><span> </span></a>
+                </div>
+            }
+        }
+
+        <div class="products">
+            <h5 class="latest-product">LATEST PRODUCTS FOR WOMEN</h5>
+            <a class="view-all" href="/products/gender/women">VIEW ALL<span> </span></a>
+        </div>
+
+        @for (int index = 0; index < lastestProductsForWomen.Count; index++)
+        {
+            var productDetailUrl = "/product-detail/" + lastestProductsForWomen[index].Alias.ToLower() + "/" + lastestProductsForWomen[index].Id;
+            countLastestItemForWomen++;
+
+            <div class="col-md-4 chain-grid @(countLastestItem % 3 == 0 ? "sed-left-top" : string.Empty)">
+                <a href="@productDetailUrl">
+                    <img class="img-responsive chain" src="@lastestProductsForWomen[index].Image" alt=" ">
+                </a>
+                <span class="star"> </span>
+                <div class="grid-chain-bottom">
+                    <h6><a href="single.html">@lastestProductsForWomen[index].Name</a></h6>
+                    <div class="star-price">
+                        <div class="dolor-grid">
+                            @if (lastestProductsForWomen[index].Price.HasValue && lastestProductsForWomen[index].PromotionPrice.HasValue)
+                            {
+                                <span class="actual">
+                                    <strong>@string.Format("{0:0,0}₫", lastestProductsForWomen[index].PromotionPrice)</strong>
+                                </span>
+                                <span class="reducedfrom">
+                                    <strong>@string.Format("{0:0,0}₫", lastestProductsForWomen[index].Price)</strong>
+                                </span>
+                            }
+                            <span class="rating">
+                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                <label for="rating-input-1-5" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                <label for="rating-input-1-4" class="rating-star1"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                <label for="rating-input-1-3" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                <label for="rating-input-1-2" class="rating-star"> </label>
+                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                <label for="rating-input-1-1" class="rating-star"> </label>
+                            </span>
+                        </div>
+                        <a class="now-get get-cart btnAddToCart" href="#" data-id="@lastestProductsForWomen[index].Id">ADD TO CART</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            if (countLastestItemForWomen % 3 == 0)
+            {
+                <div class="products" style="border:none">
+                    <h5 class="latest-product"></h5>
+                    <a class="" href="/products/gender/women"><span> </span></a>
+                </div>
+            }
+        }
+    </div>
+</div>
+<!--End shoes grid-->
+
+@section SlideJS {
+    <script src="~/Assets/Client/js/jquery.wmuSlider.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+}

@@ -1,0 +1,14 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.10",
+    "jquery-ui": "1.12.1",
+    "mustache": "2.3.0",
+    "numeral": "2.0.6",
+    "jquery-validation": "1.17.0",
+    "bootstrap": "3.3.7",
+    "jquery": "3.3.1",
+    "bootbox": "4.4.0"
+  }
+}
