@@ -1367,6 +1367,7 @@
     <Content Include="Scripts\plugins\numeral\tests\locales\uk-ua.js" />
     <Content Include="Scripts\plugins\numeral\tests\locales\vi.js" />
     <Content Include="Scripts\plugins\numeral\tests\numeral.js" />
+    <Content Include="Scripts\spa\app.module.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1643,7 +1644,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\" />
-    <Folder Include="Scripts\spa\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
