@@ -174,6 +174,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Admin\app\components\products\product.module.js" />
+    <Content Include="Assets\Admin\app\components\products\productAddController.js" />
+    <Content Include="Assets\Admin\app\components\products\productAddView.html" />
+    <Content Include="Assets\Admin\app\components\products\productEditView.html" />
+    <Content Include="Assets\Admin\app\components\products\productsController.js" />
+    <Content Include="Assets\Admin\app\components\products\productsView.html" />
+    <Content Include="Assets\Admin\app\components\products\productEditController.js" />
+    <Content Include="Assets\Admin\app\shared\app.js" />
+    <Content Include="Assets\Admin\app\shared\app.routes.js" />
     <Content Include="Assets\Client\css\bootstrap.css" />
     <Content Include="Assets\Client\css\jquery-ui.min.css" />
     <Content Include="Assets\Client\css\modify.css" />
@@ -1643,7 +1652,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\Admin\" />
+    <Folder Include="Assets\Admin\app\components\application-groups\" />
+    <Folder Include="Assets\Admin\app\components\application-roles\" />
+    <Folder Include="Assets\Admin\app\components\application-users\" />
+    <Folder Include="Assets\Admin\app\components\home\" />
+    <Folder Include="Assets\Admin\app\components\login\" />
+    <Folder Include="Assets\Admin\app\components\orders\" />
+    <Folder Include="Assets\Admin\app\components\product-categories\" />
+    <Folder Include="Assets\Admin\app\components\statistic\" />
+    <Folder Include="Assets\Admin\app\shared\directives\" />
+    <Folder Include="Assets\Admin\app\shared\filters\" />
+    <Folder Include="Assets\Admin\app\shared\modules\" />
+    <Folder Include="Assets\Admin\app\shared\services\" />
+    <Folder Include="Assets\Admin\app\shared\views\" />
+    <Folder Include="Assets\Admin\css\" />
+    <Folder Include="Assets\Admin\images\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
