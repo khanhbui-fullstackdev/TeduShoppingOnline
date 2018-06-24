@@ -2,21 +2,21 @@
 // anonymos method
 (function () {
     angular.module('teduShoppingOnline.module', [
-        'tedushopingOnline.module.common',
-        'product.module'
-
+        'common.module',
+        'product.module',
+        'consts.module'
     ]).config(config);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider, consts) {
 
         var homeUrlConfig = {
             url: '/admin',
-            templateUrl: '/app/components/home/homeView.html',
+            templateUrl: consts.components.home + 'homeView.html',
             controller: 'homeController'
         }
         $stateProvider.state('home', homeUrlConfig);
-        $urlRouterProvider.otherwise('/admin');
+        $urlRouterProvider.otherwise('');
     }
 })();

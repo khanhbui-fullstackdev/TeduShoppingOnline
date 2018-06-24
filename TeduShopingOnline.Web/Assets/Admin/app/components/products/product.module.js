@@ -1,25 +1,26 @@
 ﻿(function () {
-    angular.module('product.module', ['teduShoppingOnline.module.common']).config(config);
+    angular.module('product.module', [
+        'common.module',
+        'consts.module']).config(config);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];
 
-    function config($stateProvider, $urlRouterProvider) {
-
+    function config($stateProvider, $urlRouterProvider, consts) {
         var productsUrlConfig = {
             url: '/products',
-            templateUrl: '/app/components/product/productsView.html',
+            templateUrl: consts.components.products + 'productsView.html',
             controller: 'productsController'
         };
 
         var productCreateUrlConfig = {
             url: '/product/create',
-            templateUrl: '/app/components/products/productCreateView.html',
+            templateUrl: consts.components.products + 'productCreateView.html',
             controller: 'productCreateController'
         };
 
         var productUpdateUrlConfig = {
             url: '/product/update',
-            templateUrl: '/app/components/product/productUpdateView.html',
+            templateUrl: consts.components.products + 'productUpdateView.html',
             controller: 'productUpdateController'
         };
 

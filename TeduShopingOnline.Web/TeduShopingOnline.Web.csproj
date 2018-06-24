@@ -184,8 +184,8 @@
     <Content Include="Assets\Admin\app\components\products\productsView.html" />
     <Content Include="Assets\Admin\app\components\products\productUpdateController.js" />
     <Content Include="Assets\Admin\app\shared\app.js" />
-    <Content Include="Assets\Admin\app\shared\constansts\viewUrl.js" />
-    <Content Include="Assets\Admin\app\shared\modules\teduShoppingOnline.module.common.js" />
+    <Content Include="Assets\Admin\app\shared\common\consts.module.js" />
+    <Content Include="Assets\Admin\app\shared\modules\common.module.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\skins\skin-black-light.css" />

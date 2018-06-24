@@ -209,8 +209,8 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                            <li><a ui-sref="products"><i class="fa fa-circle-o"></i> Products </a></li>
+                            <li><a ui-sref="product-create"><i class="fa fa-circle-o"></i> Add new product </a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -532,17 +532,19 @@
     <script src="~/Scripts/plugins/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Assets/Admin/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/Assets/Admin/js/demo.js"></script>
-    <script src="~/Scripts/plugins/angular/angular.min.js"></script>
-    <script src="~/Scripts/plugins/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="~/Assets/Admin/app/shared/modules/teduShoppingOnline.module.common.js"></script>
-    <script src="~/Assets/Admin/app/components/products/product.module.js"></script>
+    <!-- Angularjs 1.7 -->
+    <script src="~/Scripts/plugins/angular/angular.js"></script>
+    <script src="~/Scripts/plugins/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--Module Scripts-->
+    <script src="~/Assets/Admin/app/shared/modules/common.module.js"></script>
+    <script src="~/Assets/Admin/app/shared/common/consts.module.js"></script>
     <script src="~/Assets/Admin/app/shared/app.js"></script>
+    <!--Product Scripts-->
+    <script src="~/Assets/Admin/app/components/products/product.module.js"></script>
     <script src="~/Assets/Admin/app/components/products/productsController.js"></script>
     <script src="~/Assets/Admin/app/components/products/productCreateController.js"></script>
     <script src="~/Assets/Admin/app/components/products/productUpdateController.js"></script>
-
+    <!--Home Scripts-->
     <script src="~/Assets/Admin/app/components/home/homeController.js"></script>
 </body>
 </html>
