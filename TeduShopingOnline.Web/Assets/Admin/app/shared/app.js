@@ -3,7 +3,8 @@
 (function () {
     angular.module('teduShoppingOnline.module', [
         'common.module',
-        'product.module',
+        'products.module',
+        'product-categories.module',
         'consts.module'
     ]).config(config);
 

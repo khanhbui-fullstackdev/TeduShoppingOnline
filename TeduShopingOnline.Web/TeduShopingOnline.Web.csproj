@@ -176,7 +176,9 @@
   <ItemGroup>
     <Content Include="Assets\Admin\app\components\home\homeView.html" />
     <Content Include="Assets\Admin\app\components\home\homeController.js" />
-    <Content Include="Assets\Admin\app\components\products\product.module.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesView.html" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.js" />
+    <Content Include="Assets\Admin\app\components\products\products.module.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateController.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateView.html" />
     <Content Include="Assets\Admin\app\components\products\productUpdateView.html" />
@@ -186,6 +188,7 @@
     <Content Include="Assets\Admin\app\shared\app.js" />
     <Content Include="Assets\Admin\app\shared\common\consts.module.js" />
     <Content Include="Assets\Admin\app\shared\modules\common.module.js" />
+    <Content Include="Assets\Admin\app\shared\services\apiService.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\skins\skin-black-light.css" />
@@ -4380,6 +4383,7 @@
   <ItemGroup>
     <Compile Include="AbstractViewModels\Audit.cs" />
     <Compile Include="ApiControllers\AccountController.cs" />
+    <Compile Include="ApiControllers\ProductCategoryController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -4438,6 +4442,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Admin\app\components\product-categories\product-categories.module.js" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -4730,11 +4735,9 @@
     <Folder Include="Assets\Admin\app\components\application-users\" />
     <Folder Include="Assets\Admin\app\components\login\" />
     <Folder Include="Assets\Admin\app\components\orders\" />
-    <Folder Include="Assets\Admin\app\components\product-categories\" />
     <Folder Include="Assets\Admin\app\components\statistic\" />
     <Folder Include="Assets\Admin\app\shared\directives\" />
     <Folder Include="Assets\Admin\app\shared\filters\" />
-    <Folder Include="Assets\Admin\app\shared\services\" />
     <Folder Include="Assets\Admin\app\shared\views\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\ProductCategory\" />

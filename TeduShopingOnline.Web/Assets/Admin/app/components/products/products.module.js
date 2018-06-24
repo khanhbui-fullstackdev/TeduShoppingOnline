@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('product.module', [
+    angular.module('products.module', [
         'common.module',
         'consts.module']).config(config);
 

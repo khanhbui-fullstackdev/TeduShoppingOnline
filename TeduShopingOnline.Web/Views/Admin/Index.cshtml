@@ -211,6 +211,9 @@
                         <ul class="treeview-menu">
                             <li><a ui-sref="products"><i class="fa fa-circle-o"></i> Products </a></li>
                             <li><a ui-sref="product-create"><i class="fa fa-circle-o"></i> Add new product </a></li>
+                            <li><a ui-sref="product-update"><i class="fa fa-circle-o"></i> Update product </a></li>
+                            <li><a ui-sref="product-categories"><i class="fa fa-circle-o"></i> Product categories </a></li>
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -539,11 +542,16 @@
     <script src="~/Assets/Admin/app/shared/modules/common.module.js"></script>
     <script src="~/Assets/Admin/app/shared/common/consts.module.js"></script>
     <script src="~/Assets/Admin/app/shared/app.js"></script>
+    <!--Service Scripts-->
+    <script src="~/Assets/Admin/app/shared/services/apiService.js"></script>
     <!--Product Scripts-->
-    <script src="~/Assets/Admin/app/components/products/product.module.js"></script>
+    <script src="~/Assets/Admin/app/components/products/products.module.js"></script>
     <script src="~/Assets/Admin/app/components/products/productsController.js"></script>
     <script src="~/Assets/Admin/app/components/products/productCreateController.js"></script>
     <script src="~/Assets/Admin/app/components/products/productUpdateController.js"></script>
+    <!--Product Categories Scripts-->
+    <script src="~/Assets/Admin/app/components/product-categories/product-categories.module.js"></script>
+    <script src="~/Assets/Admin/app/components/product-categories/productCategoriesController.js"></script>
     <!--Home Scripts-->
     <script src="~/Assets/Admin/app/components/home/homeController.js"></script>
 </body>

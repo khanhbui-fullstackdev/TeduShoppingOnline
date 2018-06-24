@@ -3,6 +3,8 @@
     var appUrl = '/Assets/Admin/app/';
     var componentUrl = appUrl + 'components/';
     var sharedUrl = appUrl + 'shared/';
+    var productCategoryApi = 'api/product-category/';
+
     var consts = {
         components: {
             url: componentUrl,
@@ -25,6 +27,12 @@
             services: sharedUrl + 'services/',
             views: sharedUrl + 'views/'
         },
+        webApi: {
+            productCategory: {
+                api: productCategoryApi,
+                getAllProductCategory: productCategoryApi + 'get-all-product-category'
+            }
+        }
     };
     var constsModule = angular.module('consts.module', []); // https://docs.angularjs.org/api/ng/type/angular.Module#constant    
     constsModule.constant('consts', consts);
