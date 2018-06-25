@@ -9,7 +9,7 @@
         $scope.getProductCategories = getProductCategories;
 
         function getProductCategories() {
-            apiService.get(consts.webApi.productCategory.getAllProductCategory, null, function (result) {
+            apiService.get(consts.webApi.productCategory.getAllProductCategories, null, function (result) {
                 $scope.productCategories = result.data;
             }, function (error) {
                 console.log('Error:' + error.message);

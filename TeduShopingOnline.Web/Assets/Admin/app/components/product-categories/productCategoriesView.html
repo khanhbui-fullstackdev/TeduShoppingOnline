@@ -1,1 +1,37 @@
-﻿<div>Testing product categories</div>
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Product Categories</h3>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody ng-controller="productCategoriesController">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Created Date</th>
+                            <th>Created By</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr ng-repeat="productCategory in productCategories">
+                            <td>{{productCategory.Id}}</td>
+                            <td>{{productCategory.Name}}</td>
+                            <td>{{productCategory.CreatedDate | date:'dd/MMM/yy'}}</td>
+                            <td>{{productCategory.CreatedBy}}</td>
+                            <td><span class="label label-success">{{productCategory.Status}}</span></td>                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>

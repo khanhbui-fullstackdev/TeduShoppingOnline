@@ -10,7 +10,7 @@
         };
         function get(url, params, success, failed) {
             $http.get(url, params).then(function (response) {
-                success(result)
+                success(response)
             }, function (error) {
                 failure(error);
             });

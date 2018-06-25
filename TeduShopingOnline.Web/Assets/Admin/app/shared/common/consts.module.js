@@ -30,7 +30,7 @@
         webApi: {
             productCategory: {
                 api: productCategoryApi,
-                getAllProductCategory: productCategoryApi + 'get-all-product-category'
+                getAllProductCategories: productCategoryApi + 'get-all-product-category'
             }
         }
     };
