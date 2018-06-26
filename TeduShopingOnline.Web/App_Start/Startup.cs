@@ -63,6 +63,7 @@ namespace TeduShopingOnline.Web.App_Start
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             // Web Api
+            // Install-Package Microsoft.AspNet.WebApi.WebHost
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container); //Set the WebApi DependencyResolver
         }
     }
