@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TeduShopingOnline.Data.Infrastructures;
 using TeduShopingOnline.Data.Repositories.Interfaces;
 using TeduShopingOnline.Model.Models;
@@ -22,9 +23,11 @@ namespace TeduShopingOnline.Service
             return _productCategoryRepository.GetAllProductCategoryWithBrand();
         }
 
-        public IEnumerable<ProductCategory> GetAllProductCategory()
+        public IEnumerable<ProductCategory> GetAllProductCategory(int page, int pageSize, out int totalRow)
         {
-            return _productCategoryRepository.GetAll();
+            var productCategories = _productCategoryRepository.GetAll();
+            totalRow = productCategories.Count();
+            return productCategories.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public ProductCategory GetProductCategoryById(int productCategoryId)
