@@ -19,6 +19,7 @@ using TeduShopingOnline.Web.Infrastructure.Cores;
 
 namespace TeduShopingOnline.Web.App_Start
 {
+    //remeber using partial class
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864

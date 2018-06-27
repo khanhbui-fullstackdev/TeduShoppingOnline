@@ -19,6 +19,7 @@ using TeduShopingOnline.Service;
 
 namespace TeduShopingOnline.Web.App_Start
 {
+    //remeber using partial class
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
