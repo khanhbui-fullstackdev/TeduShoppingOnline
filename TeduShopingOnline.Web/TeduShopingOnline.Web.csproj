@@ -187,6 +187,7 @@
     <Content Include="Assets\Admin\app\components\products\productUpdateController.js" />
     <Content Include="Assets\Admin\app\shared\app.js" />
     <Content Include="Assets\Admin\app\shared\common\consts.module.js" />
+    <Content Include="Assets\Admin\app\shared\filters\statusFilter.js" />
     <Content Include="Assets\Admin\app\shared\modules\common.module.js" />
     <Content Include="Assets\Admin\app\shared\services\apiService.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
@@ -4737,7 +4738,6 @@
     <Folder Include="Assets\Admin\app\components\orders\" />
     <Folder Include="Assets\Admin\app\components\statistic\" />
     <Folder Include="Assets\Admin\app\shared\directives\" />
-    <Folder Include="Assets\Admin\app\shared\filters\" />
     <Folder Include="Assets\Admin\app\shared\views\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\ProductCategory\" />
