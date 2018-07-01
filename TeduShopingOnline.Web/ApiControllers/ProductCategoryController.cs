@@ -31,7 +31,7 @@ namespace TeduShopingOnline.Web.ApiControllers
         }
 
         [Route("get-all-product-category")]
-        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 5)
+        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 25)
         {
             return CreateHttpResponse(httpRequestMessage, () =>
             {

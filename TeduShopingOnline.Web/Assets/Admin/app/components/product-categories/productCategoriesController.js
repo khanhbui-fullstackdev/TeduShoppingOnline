@@ -10,11 +10,11 @@
         $scope.getProductCategories = getProductCategories;
         $scope.keyword = '';
 
-        function getProductCategories(keyword, page) {
+        function getProductCategories(page) {
             page = page || 0;
             var config = {
                 params: {
-                    //keyword: $scope.keyword,
+                    keyword: $scope.keyword,
                     page: page,// by default page = 0
                     pageSize: 5//display 2 items only on one page
                 }
