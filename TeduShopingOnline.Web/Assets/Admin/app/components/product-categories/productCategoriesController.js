@@ -1,16 +1,31 @@
 ﻿(function (app) {
     app.controller('productCategoriesController', productCategoriesController)
-
+    
     productCategoriesController.$inject = ['$scope', 'apiService', 'consts'];
 
     function productCategoriesController($scope, apiService, consts) {
         $scope.productCategories = [];
-
+        $scope.page = 0;
+        $scope.pagesCount = 0;
         $scope.getProductCategories = getProductCategories;
 
-        function getProductCategories() {
-            apiService.get(consts.webApi.productCategory.getAllProductCategories, null, function (result) {
-                $scope.productCategories = result.data;
+        function getProductCategories(page) {
+            page = page || 0;
+            var config = {
+                params: {
+                    page: page,// by default page = 0
+                    pageSize: 5,//display 2 items only on one page
+                }
+            };
+
+            apiService.get(consts.webApi.productCategory.getAllProductCategories, config, function (result) {
+                if (result.data.TotalCount == 0) {
+
+                }
+                $scope.productCategories = result.data.Items;
+                $scope.page = result.data.Page;
+                $scope.pagesCount = result.data.TotalPages;
+                $scope.totalCount = result.data.TotalCount;
             }, function (error) {
                 console.log('Error:' + error.message);
             });

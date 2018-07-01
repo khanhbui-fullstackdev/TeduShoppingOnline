@@ -187,8 +187,8 @@
     <Content Include="Assets\Admin\app\components\products\productUpdateController.js" />
     <Content Include="Assets\Admin\app\shared\app.js" />
     <Content Include="Assets\Admin\app\shared\common\consts.module.js" />
-    <Content Include="Assets\Admin\app\shared\directives\pageDirective.html" />
-    <Content Include="Assets\Admin\app\shared\directives\pageDirective.js" />
+    <Content Include="Assets\Admin\app\shared\directives\pagerDirective.html" />
+    <Content Include="Assets\Admin\app\shared\directives\pagerDirective.js" />
     <Content Include="Assets\Admin\app\shared\filters\statusFilter.js" />
     <Content Include="Assets\Admin\app\shared\modules\common.module.js" />
     <Content Include="Assets\Admin\app\shared\services\apiService.js" />

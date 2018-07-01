@@ -2,8 +2,8 @@
     'use strict';
 
     app.directive('pagerDirective', pagerDirective);
-
-    function pagerDirective() {
+    pagerDirective.$inject = ['consts'];
+    function pagerDirective(consts) {
         return {
             scope: {
                 page: '@',
@@ -14,7 +14,7 @@
             },
             replace: true,
             restrict: 'E',
-            templateUrl: '/app/shared/directives/pagerDirective.html',
+            templateUrl: consts.shared.directives + 'pagerDirective.html',
             controller: [
                 '$scope', function ($scope) {
                     $scope.search = function (i) {
@@ -47,4 +47,4 @@
         }
     }
 
-})(angular.module('tedushop.common'));
+})(angular.module('common.module'));

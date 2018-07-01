@@ -18,8 +18,9 @@ namespace TeduShopingOnline.Web.ApiControllers
     public class ProductCategoryController : ApiControllerBase
     {
         private IProductCategoryService _productCategoryService;
-
-        private int pageSize = int.Parse(ConfigHelper.GetByKey(CommonConstants.PageSize).ToString());
+        //pageSize = 9 means the number of item displayed on page(so item dc hien thi tren 1 page)
+        //private int pageSize = 5;
+        //Maxpage = 5 only allow to display 5 pages only from 1 to 5
         private int maxPage = int.Parse(ConfigHelper.GetByKey(CommonConstants.MaxPage).ToString());
 
         public ProductCategoryController(
@@ -30,11 +31,11 @@ namespace TeduShopingOnline.Web.ApiControllers
         }
 
         [Route("get-all-product-category")]
-        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, int page, int pageSize)
+        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, int page, int pageSize = 5)
         {
             return CreateHttpResponse(httpRequestMessage, () =>
             {
-                int totalRow = 0;
+                int totalRow = 0; // totalRow = productCategories.Count(); 9
                 var productCategoryModel = _productCategoryService.GetAllProductCategory(page, pageSize, out totalRow);
                 int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
 
@@ -44,13 +45,13 @@ namespace TeduShopingOnline.Web.ApiControllers
                     Items = productCategoryViewModel,
                     MaxPage = maxPage,
                     Page = page,
-                    TotalCount = totalRow,
-                    TotalPages = totalPage,
+                    TotalCount = totalRow,//9
+                    TotalPages = totalPage,//
                 };
 
                 var httpResponse = httpRequestMessage.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return httpResponse;
             });
-        }
+        }       
     }
 }
