@@ -4,8 +4,7 @@
     angular.module('teduShoppingOnline.module', [
         'common.module',
         'products.module',
-        'product-categories.module',
-        'consts.module'
+        'product-categories.module'
     ]).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];

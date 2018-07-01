@@ -1,7 +1,6 @@
 ﻿(function () {
     var productCategoriesModule = angular.module('product-categories.module', [
-        'common.module',
-        'consts.module']);
+        'common.module']);
     productCategoriesModule.config(config);
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];
 

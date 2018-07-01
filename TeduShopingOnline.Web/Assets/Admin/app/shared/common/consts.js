@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (app) {
 
     var appUrl = '/Assets/Admin/app/';
     var componentUrl = appUrl + 'components/';
@@ -34,6 +34,6 @@
             }
         }
     };
-    var constsModule = angular.module('consts.module', []); // https://docs.angularjs.org/api/ng/type/angular.Module#constant    
-    constsModule.constant('consts', consts);
-})();
+    https://docs.angularjs.org/api/ng/type/angular.Module#constant    
+    app.constant('consts', consts);
+})(angular.module('common.module'));
