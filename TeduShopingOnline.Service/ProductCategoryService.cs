@@ -38,6 +38,27 @@ namespace TeduShopingOnline.Service
             return productCategories.Skip(page * pageSize).Take(pageSize);
         }
 
+        public IEnumerable<ProductCategory> GetAllProductCategory(string keyword, int page, int pageSize, out int totalRow)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var productCategories = _productCategoryRepository
+                                        .GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword))
+                                        .OrderByDescending(x => x.CreatedDate);
+                totalRow = productCategories.Count();
+                return productCategories.Skip(page * pageSize).Take(pageSize);
+            }
+            else
+            {
+                var productCategories = _productCategoryRepository
+                                            .GetAll()
+                                            .OrderByDescending(x => x.CreatedDate);
+                totalRow = productCategories.Count();
+                return productCategories.Skip(page * pageSize).Take(pageSize);
+            }
+
+        }
+
         public ProductCategory GetProductCategoryById(int productCategoryId)
         {
             return _productCategoryRepository.GetSingleById(productCategoryId);

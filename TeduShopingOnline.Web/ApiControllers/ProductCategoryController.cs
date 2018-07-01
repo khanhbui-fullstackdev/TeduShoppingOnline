@@ -31,12 +31,12 @@ namespace TeduShopingOnline.Web.ApiControllers
         }
 
         [Route("get-all-product-category")]
-        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, int page, int pageSize = 5)
+        public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 5)
         {
             return CreateHttpResponse(httpRequestMessage, () =>
             {
                 int totalRow = 0; // totalRow = productCategories.Count(); 9
-                var productCategoryModel = _productCategoryService.GetAllProductCategory(page, pageSize, out totalRow);
+                var productCategoryModel = _productCategoryService.GetAllProductCategory(keyword, page, pageSize, out totalRow);
                 int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
 
                 var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategoryModel);
@@ -52,6 +52,6 @@ namespace TeduShopingOnline.Web.ApiControllers
                 var httpResponse = httpRequestMessage.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return httpResponse;
             });
-        }       
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿(function (app) {
     app.controller('productCategoriesController', productCategoriesController)
-    
+
     productCategoriesController.$inject = ['$scope', 'apiService', 'consts'];
 
     function productCategoriesController($scope, apiService, consts) {
@@ -8,13 +8,15 @@
         $scope.page = 0;
         $scope.pagesCount = 0;
         $scope.getProductCategories = getProductCategories;
+        $scope.keyword = '';
 
-        function getProductCategories(page) {
+        function getProductCategories(keyword, page) {
             page = page || 0;
             var config = {
                 params: {
+                    //keyword: $scope.keyword,
                     page: page,// by default page = 0
-                    pageSize: 5,//display 2 items only on one page
+                    pageSize: 5//display 2 items only on one page
                 }
             };
 
