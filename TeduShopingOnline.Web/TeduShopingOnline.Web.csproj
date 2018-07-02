@@ -192,6 +192,7 @@
     <Content Include="Assets\Admin\app\shared\filters\statusFilter.js" />
     <Content Include="Assets\Admin\app\shared\common\common.module.js" />
     <Content Include="Assets\Admin\app\shared\services\apiService.js" />
+    <Content Include="Assets\Admin\app\shared\services\notificationService.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\skins\skin-black-light.css" />
@@ -4378,6 +4379,10 @@
     <Content Include="Scripts\plugins\slimScroll\examples\style.css" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.js" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\plugins\toastr\toastr.css" />
+    <Content Include="Scripts\plugins\toastr\toastr.js" />
+    <Content Include="Scripts\plugins\toastr\toastr.min.css" />
+    <Content Include="Scripts\plugins\toastr\toastr.min.js" />
     <Content Include="Scripts\spa\app.module.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -4724,6 +4729,13 @@
     <Content Include="Scripts\plugins\ng-ckeditor\package.json" />
     <Content Include="Scripts\plugins\ng-ckeditor\README.md" />
     <Content Include="Scripts\plugins\ng-ckeditor\src\styles\ng-ckeditor.less" />
+    <Content Include="Scripts\plugins\toastr\.bower.json" />
+    <Content Include="Scripts\plugins\toastr\bower.json" />
+    <Content Include="Scripts\plugins\toastr\LICENSE" />
+    <Content Include="Scripts\plugins\toastr\README.md" />
+    <Content Include="Scripts\plugins\toastr\toastr.js.map" />
+    <Content Include="Scripts\plugins\toastr\toastr.less" />
+    <Content Include="Scripts\plugins\toastr\toastr.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

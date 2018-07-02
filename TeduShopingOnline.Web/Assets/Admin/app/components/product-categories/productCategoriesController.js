@@ -1,9 +1,11 @@
-﻿(function (app) {
+﻿/// <reference path="../../shared/services/notificationservice.js" />
+
+(function (app) {
     app.controller('productCategoriesController', productCategoriesController)
 
-    productCategoriesController.$inject = ['$scope', 'apiService', 'consts'];
+    productCategoriesController.$inject = ['$scope', 'apiService', 'consts','notificationService'];
 
-    function productCategoriesController($scope, apiService, consts) {
+    function productCategoriesController($scope, apiService, consts, notificationService) {
         $scope.productCategories = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
@@ -27,7 +29,7 @@
 
             apiService.get(consts.webApi.productCategory.getAllProductCategories, config, function (result) {
                 if (result.data.TotalCount == 0) {
-
+                    notificationService.warning('No result');
                 }
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
