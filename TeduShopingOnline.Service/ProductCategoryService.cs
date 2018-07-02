@@ -43,8 +43,8 @@ namespace TeduShopingOnline.Service
             if (!string.IsNullOrEmpty(keyword))
             {
                 var productCategories = _productCategoryRepository
-                                        .GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword))
-                                        .OrderByDescending(x => x.CreatedDate);
+                                            .GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword))
+                                            .OrderByDescending(x => x.CreatedDate);
                 totalRow = productCategories.Count();
                 return productCategories.Skip(page * pageSize).Take(pageSize);
             }
@@ -56,7 +56,6 @@ namespace TeduShopingOnline.Service
                 totalRow = productCategories.Count();
                 return productCategories.Skip(page * pageSize).Take(pageSize);
             }
-
         }
 
         public ProductCategory GetProductCategoryById(int productCategoryId)
