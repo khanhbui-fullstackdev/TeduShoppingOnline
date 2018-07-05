@@ -176,6 +176,7 @@
   <ItemGroup>
     <Content Include="Assets\Admin\app\components\home\homeView.html" />
     <Content Include="Assets\Admin\app\components\home\homeController.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesAddController.html" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoriesView.html" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.js" />
     <Content Include="Assets\Admin\app\components\products\products.module.js" />
@@ -4451,6 +4452,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\Admin\app\components\product-categories\product-categories.module.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesAddController.js" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

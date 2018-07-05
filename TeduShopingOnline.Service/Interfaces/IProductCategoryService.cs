@@ -10,5 +10,7 @@ namespace TeduShopingOnline.Service.Interfaces
         IEnumerable<ProductCategory> GetAllProductCategory(int page, int pageSize, out int totalRow);
         IEnumerable<ProductCategory> GetAllProductCategory(string keyword, int page, int pageSize, out int totalRow);
         ProductCategory GetProductCategoryById(int productCategoryId);
+        ProductCategory AddProductCategory(ProductCategory productCategory);
+        void SaveChanges();
     }
 }

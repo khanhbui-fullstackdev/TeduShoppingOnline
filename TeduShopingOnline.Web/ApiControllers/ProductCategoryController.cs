@@ -10,7 +10,9 @@ using TeduShopingOnline.Common.Helpers;
 using TeduShopingOnline.Model.Models;
 using TeduShopingOnline.Service.Interfaces;
 using TeduShopingOnline.Web.Infrastructure.Cores;
+using TeduShopingOnline.Web.Infrastructure.Extensions;
 using TeduShopingOnline.Web.ViewModels;
+
 
 namespace TeduShopingOnline.Web.ApiControllers
 {
@@ -31,6 +33,7 @@ namespace TeduShopingOnline.Web.ApiControllers
         }
 
         [Route("get-all-product-category")]
+        [HttpGet]
         public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 25)
         {
             return CreateHttpResponse(httpRequestMessage, () =>
@@ -51,6 +54,32 @@ namespace TeduShopingOnline.Web.ApiControllers
 
                 var httpResponse = httpRequestMessage.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return httpResponse;
+            });
+        }
+
+        [Route("add-product-category")]
+        [HttpPost]
+        public HttpResponseMessage AddProductCategory(HttpRequestMessage httpRequestMessage, ProductCategoryViewModel productCategoryViewModel)
+        {
+            return CreateHttpResponse(httpRequestMessage, () =>
+            {
+                HttpResponseMessage httpResponseMessage = null;
+                if (ModelState.IsValid)
+                {
+                    var newProductCategoryModel = new ProductCategory();
+                    newProductCategoryModel.UpdateProductCategory(productCategoryViewModel);
+
+                    _productCategoryService.AddProductCategory(newProductCategoryModel);
+                    _productCategoryService.SaveChanges();
+
+                    var newProductCategoryVm = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategoryModel);
+                    httpResponseMessage = httpRequestMessage.CreateResponse(HttpStatusCode.Created, newProductCategoryModel);
+                }
+                else
+                {
+                    httpResponseMessage = httpRequestMessage.CreateResponse(HttpStatusCode.BadGateway, ModelState);
+                }
+                return httpResponseMessage;
             });
         }
     }

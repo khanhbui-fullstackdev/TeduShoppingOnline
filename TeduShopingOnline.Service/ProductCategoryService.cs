@@ -62,5 +62,16 @@ namespace TeduShopingOnline.Service
         {
             return _productCategoryRepository.GetSingleById(productCategoryId);
         }
+
+        public ProductCategory AddProductCategory(ProductCategory productCategory)
+        {
+            var product = _productCategoryRepository.Add(productCategory);
+            return product;
+        }
+
+        public void SaveChanges()
+        {
+            _unitOfWork.Commit();
+        }
     }
 }

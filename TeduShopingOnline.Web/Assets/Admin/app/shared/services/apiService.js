@@ -6,11 +6,19 @@
 
     function apiService($http) {
         return {
-            get: get
+            get: get,
+            post: post
         };
         function get(url, params, success, failure) {
             $http.get(url, params).then(function (response) {
                 success(response)
+            }, function (error) {
+                failure(error);
+            });
+        };
+        function post(url, params, success, failure) {
+            $http.post(url, params).then(function (response) {
+                success(response);
             }, function (error) {
                 failure(error);
             });

@@ -5,13 +5,20 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];
 
     function config($stateProvider, $urlRouterProvider, consts) {
-        var productCategoriesUrlConfig = {
+        var productCategoriesViewConfig = {
             url: '/product-categories/',
             templateUrl: consts.components.productCategories + 'productCategoriesView.html',
             controller: 'productCategoriesController'
         };
 
+        var productCategoriesAddConfig = {
+            url: '/product-categories/add',
+            templateUrl: consts.components.productCategories + 'productCategoriesAddController.html',
+            controller: 'productCategoriesAddController'
+        };
+
         $stateProvider
-            .state('product-categories', productCategoriesUrlConfig);
+            .state('product-categories', productCategoriesViewConfig)
+            .state('product-categories-add', productCategoriesAddConfig);
     }
 })();
