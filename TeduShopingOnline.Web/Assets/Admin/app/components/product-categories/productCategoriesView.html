@@ -6,15 +6,17 @@
             </div><!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <div class="box-tools">
-                    <div class="col-md-6">
+                    <div class="col-md-11">
                         <div class="input-group">
                             <input type="text" class="form-control" ng-model="keyword" placeholder="Keyword">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" ng-click="search()">Search</button>
                             </span>
-                        </div><!-- /input-group -->
+                            <button class="btn btn-info pull-right" type="button" ui-sref="product-categories-add">Add new</button>
+                        </div><!-- /input-group -->                       
                     </div>
                 </div>
+                <hr />
                 <table class="table table-hover">
                     <tbody>
                         <tr>

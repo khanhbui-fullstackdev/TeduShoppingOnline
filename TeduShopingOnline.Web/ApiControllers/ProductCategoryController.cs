@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,6 +8,7 @@ using TeduShopingOnline.Common.Constants;
 using TeduShopingOnline.Common.Helpers;
 using TeduShopingOnline.Model.Models;
 using TeduShopingOnline.Service.Interfaces;
+using TeduShopingOnline.Web.App_Start;
 using TeduShopingOnline.Web.Infrastructure.Cores;
 using TeduShopingOnline.Web.Infrastructure.Extensions;
 using TeduShopingOnline.Web.ViewModels;
@@ -24,12 +24,15 @@ namespace TeduShopingOnline.Web.ApiControllers
         //private int pageSize = 5;
         //Maxpage = 5 only allow to display 5 pages only from 1 to 5
         private int maxPage = int.Parse(ConfigHelper.GetByKey(CommonConstants.MaxPage).ToString());
+        private ApplicationUserManager _applicationUserManager;
 
         public ProductCategoryController(
             IErrorService errorService,
-            IProductCategoryService productCategoryService) : base(errorService)
+            IProductCategoryService productCategoryService,
+            ApplicationUserManager applicationUserManager) : base(errorService)
         {
             this._productCategoryService = productCategoryService;
+            this._applicationUserManager = applicationUserManager;
         }
 
         [Route("get-all-product-category")]
@@ -68,7 +71,7 @@ namespace TeduShopingOnline.Web.ApiControllers
                 {
                     var newProductCategoryModel = new ProductCategory();
                     newProductCategoryModel.UpdateProductCategory(productCategoryViewModel);
-
+                    
                     _productCategoryService.AddProductCategory(newProductCategoryModel);
                     _productCategoryService.SaveChanges();
 

@@ -17,6 +17,10 @@
             getProductCategories();
         }
 
+        function addNew() {
+            
+        }
+
         function getProductCategories(page) {
             page = page || 0;
             var config = {
@@ -29,7 +33,7 @@
 
             apiService.get(consts.webApi.productCategory.getAllProductCategories, config, function (result) {
                 if (result.data.TotalCount == 0) {
-                    notificationService.warning('No result');
+                    notificationService.error('No result');
                 }
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;

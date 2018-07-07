@@ -1,109 +1,128 @@
-﻿  <!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        Add New Product Category
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Index</a></li>
-        <li><a href="#">Products</a></li>
-        <li>
-            <a>Product Categories</a>
-        </li>
-        <li class="active">Add New</li>
-    </ol>
-</section>
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Product Category</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <!--novalidate is attribute that is used to prevent form validation default-->
+            <form class="form-horizontal"
+                  role="form"
+                  novalidate
+                  name="frmAddProductCategory"
+                  ng-submit="addProductCategory()">
+                <div class="box-body">
 
-<!-- Main content -->
-<section class="content">
-    <!-- Horizontal Form -->
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">Add new</h3>
-        </div><!-- /.box-header -->
-        <!-- form start -->
-        <form class="form-horizontal">
-            <div class="box-body">
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Product Categories</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">SEO</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="alias" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="description" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Danh mục cha</label>
-                    <div class="col-sm-10">
-                        <select name="parentId" class="form-control">
-                            <option value="">Danh mục gốc</option>
-                        </select>
-                        <input type="hidden" name="parentId" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Thứ tự</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" name="displayOrder" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="image" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Keyword</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="metaKeyword" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Description</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="status" /> Kích hoạt
-                            </label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="homeFlag" /> Hiển thị trang chủ
-                            </label>
+                    <div class="form-group">
+                        <label for="txtName" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   class="form-control"
+                                   id="txtName"
+                                   placeholder="Name"
+                                   ng-model="name"
+                                   name="name" />
                         </div>
                     </div>
-                </div>
-            </div><!-- /.box-body -->
 
-            <div class="box-footer">
-                <button class="btn btn-default">Cancel</button>
-                <button type="submit"
-                        class="btn btn-success pull-right">Save Changes</button>
-            </div><!-- /.box-footer -->
-        </form>
-    </div><!-- /.box -->
-</section><!-- /.content -->
+                    <div class="form-group">
+                        <label for="txtAlias" class="col-sm-2 control-label">Alias</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   class="form-control"
+                                   id="txtAlias"
+                                   placeholder="Alias"
+                                   ng-model="alias"
+                                   name="alias" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Description
+                        </label>
+                        <div class="col-sm-10">
+                            <textarea 
+                                      class="form-control" 
+                                      rows="5" 
+                                      placeholder="Description" 
+                                      ng-model="description"
+                                      name="description">        
+                             </textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Display Order
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="Display Order" 
+                                   ng-model="displayOrder" 
+                                   name="displayOrder"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Meta keyword
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="Meta Keyword" 
+                                   ng-model="metaKeyword" 
+                                   name="metaKeyword"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Meta description
+                        </label>
+                        <div class="col-sm-10">
+                            <textarea type="text" 
+                                      class="form-control" 
+                                      placeholder="Meta Description" 
+                                      rows="5" 
+                                      ng-model="metaDescription"
+                                      name="metaDescription">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Status
+                        </label>
+                        <div class="col-sm-10">
+                            <select class="form-control"
+                                    ng-init="status = statusOptions[0]"
+                                    ng-model="status"
+                                    ng-options="x.label for x in statusOptions"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Home flag
+                        </label>
+                        <div class="col-sm-10">
+                            <select class="form-control"
+                                    ng-init="homeFlag = homeFlagOptions[0]"
+                                    ng-options="x.label for x in homeFlagOptions"
+                                    ng-model="homeFlag"></select>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button ui-sref="product-categories" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-info pull-right">Add New</button>
+                </div><!-- /.box-footer -->
+            </form>
+        </div><!-- /.box -->
+    </div>
+</div>

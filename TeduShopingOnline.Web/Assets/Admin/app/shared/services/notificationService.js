@@ -1,5 +1,5 @@
 ﻿(function (app) {
-    app.factory('notificationService', notificationService);
+    app.service('notificationService', notificationService);
 
     function notificationService() {
         toastr.options = {
@@ -13,7 +13,7 @@
         };
 
         function success(message) {
-            toastr.success(message);
+            toastr.success(message, 'Success');            
         }
 
         function error(error) {
@@ -23,16 +23,16 @@
                 });
             }
             else {
-                toastr.error(error);
+                toastr.error(error, 'Error');
             }
         }
 
         function warning(message) {
-            toastr.warning(message);
+            toastr.warning(message, 'Warning');
         }
 
         function info(message) {
-            toastr.info(message);
+            toastr.info(message, 'Info');
         }
 
         return {

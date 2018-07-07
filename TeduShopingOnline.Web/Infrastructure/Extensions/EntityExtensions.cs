@@ -42,8 +42,8 @@ namespace TeduShopingOnline.Web.Infrastructure.Extensions
             productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
             productCategory.HomeFlag = productCategoryVm.HomeFlag;
 
-            productCategory.CreatedDate = productCategoryVm.CreatedDate;
-            productCategory.CreatedBy = productCategoryVm.CreatedBy;
+            productCategory.CreatedDate = DateTime.Now.Date;
+            productCategory.CreatedBy = string.IsNullOrEmpty(productCategoryVm.CreatedBy) == true ? "khanhbui" : productCategoryVm.CreatedBy;
             productCategory.UpdatedDate = productCategoryVm.UpdatedDate;
             productCategory.UpdatedBy = productCategoryVm.UpdatedBy;
             productCategory.MetaDescription = productCategoryVm.MetaDescription;
@@ -104,7 +104,7 @@ namespace TeduShopingOnline.Web.Infrastructure.Extensions
         {
             feedback.Name = feedbackVm.Name;
             feedback.Email = feedbackVm.Email;
-            feedback.Message = feedbackVm.Message;            
+            feedback.Message = feedbackVm.Message;
             feedback.CreatedDate = DateTime.Now;
         }
 
