@@ -20,7 +20,9 @@ namespace TeduShopingOnline.Model.Models
             Column(TypeName = "nvarchar")]
         public string Name { get; set; }
 
-        [Column(TypeName = "varchar")]
+        [Column(TypeName = "varchar"),
+            MinLength(2, ErrorMessage = ErrorMessage.MinLengthField),
+            MaxLength(255, ErrorMessage = ErrorMessage.MaxLengthField)]
         public string Alias { get; set; }
 
         [Column(TypeName = "nvarchar")]
