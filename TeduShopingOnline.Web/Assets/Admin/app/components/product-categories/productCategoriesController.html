@@ -2,7 +2,7 @@
     <div class="col-xs-12">
         <div class="box" ng-controller="productCategoriesController">
             <div class="box-header">
-                <h3 class="box-title">Product Categories</h3>                
+                <h3 class="box-title">Product Categories</h3>
             </div><!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <div class="box-tools">
@@ -12,8 +12,8 @@
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" ng-click="search()">Search</button>
                             </span>
-                            <button class="btn btn-info pull-right" type="button" ui-sref="product-categories-add">Add new</button>
-                        </div><!-- /input-group -->                       
+                            <button class="btn btn-info pull-right" type="button" ui-sref="product-category-add">Add new</button>
+                        </div><!-- /input-group -->
                     </div>
                 </div>
                 <hr />
@@ -38,7 +38,9 @@
                                 </span>
                             </td>
                             <td>
-                                <button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                                <button type="button" class="btn btn-primary" ui-sref="product-category-update({id:productCategory.Id})">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </button>
                                 <button class="btn btn-danger"><i class="fa fa-remove"></i></button>
                             </td>
                         </tr>

@@ -73,5 +73,10 @@ namespace TeduShopingOnline.Service
         {
             _unitOfWork.Commit();
         }
+
+        public void UpdateProductCategory(ProductCategory productCategory)
+        {
+            _productCategoryRepository.Update(productCategory);
+        }
     }
 }

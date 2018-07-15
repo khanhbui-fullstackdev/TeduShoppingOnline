@@ -29,9 +29,11 @@
         },
         webApi: {
             productCategory: {
-                api: productCategoryApi,
+                api: productCategoryApi,               
                 getAllProductCategories: productCategoryApi + 'get-all-product-category',
-                addProductCategory: productCategoryApi + 'add-product-category'
+                addProductCategory: productCategoryApi + 'add-product-category',
+                updateProductCategory: productCategoryApi + 'update-product-category',
+                getProductCategoryById: productCategoryApi + 'get-product-category-by-id'
             }
         }
     };

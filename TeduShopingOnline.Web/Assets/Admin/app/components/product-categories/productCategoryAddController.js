@@ -1,14 +1,16 @@
 ﻿(function (app) {
-    app.controller('productCategoriesAddController', productCategoriesAddController);
+    'use strict';
 
-    productCategoriesAddController.$inject = [
+    app.controller('productCategoryAddController', productCategoryAddController);
+
+    productCategoryAddController.$inject = [
         '$scope',
         'apiService',
         'consts',
         'notificationService',
         '$state'];
 
-    function productCategoriesAddController($scope, apiService, consts, notificationService, $state) {
+    function productCategoryAddController($scope, apiService, consts, notificationService, $state) {
         //declare property
         $scope.name = '';
         $scope.alias = '';
@@ -50,4 +52,4 @@
         }
     }
 
-})(angular.module('product-categories.module'));
+})(angular.module('product-category.module'));

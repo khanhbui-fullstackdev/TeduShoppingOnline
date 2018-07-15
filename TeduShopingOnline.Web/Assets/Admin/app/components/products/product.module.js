@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('products.module', [
+    angular.module('product.module', [
         'common.module']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];

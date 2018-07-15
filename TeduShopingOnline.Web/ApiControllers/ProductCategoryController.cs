@@ -35,6 +35,20 @@ namespace TeduShopingOnline.Web.ApiControllers
             this._applicationUserManager = applicationUserManager;
         }
 
+        [Route("get-product-category-by-id/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetProductCategoryById(HttpRequestMessage httpRequestMessage, int id)
+        {
+            return CreateHttpResponse(httpRequestMessage, () =>
+            {
+                var productCategoryModel = _productCategoryService.GetProductCategoryById(id);
+                var productCategoryViewModel = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategoryModel);
+
+                var httpResponse = httpRequestMessage.CreateResponse(HttpStatusCode.OK, productCategoryViewModel);
+                return httpResponse;
+            });
+        }
+
         [Route("get-all-product-category")]
         [HttpGet]
         public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 25)
@@ -71,8 +85,34 @@ namespace TeduShopingOnline.Web.ApiControllers
                 {
                     var newProductCategoryModel = new ProductCategory();
                     newProductCategoryModel.UpdateProductCategory(productCategoryViewModel);
-                    
+
                     _productCategoryService.AddProductCategory(newProductCategoryModel);
+                    _productCategoryService.SaveChanges();
+
+                    var newProductCategoryVm = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategoryModel);
+                    httpResponseMessage = httpRequestMessage.CreateResponse(HttpStatusCode.Created, newProductCategoryModel);
+                }
+                else
+                {
+                    httpResponseMessage = httpRequestMessage.CreateResponse(HttpStatusCode.BadGateway, ModelState);
+                }
+                return httpResponseMessage;
+            });
+        }
+
+        [Route("update-product-category")]
+        [HttpPost]
+        public HttpResponseMessage UpdateProductCategory(HttpRequestMessage httpRequestMessage, ProductCategoryViewModel productCategoryViewModel)
+        {
+            return CreateHttpResponse(httpRequestMessage, () =>
+            {
+                HttpResponseMessage httpResponseMessage = null;
+                if (ModelState.IsValid)
+                {
+                    var newProductCategoryModel = new ProductCategory();
+                    newProductCategoryModel.UpdateProductCategory(productCategoryViewModel);
+
+                    _productCategoryService.UpdateProductCategory(newProductCategoryModel);
                     _productCategoryService.SaveChanges();
 
                     var newProductCategoryVm = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategoryModel);

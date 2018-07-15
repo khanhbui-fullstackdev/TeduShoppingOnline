@@ -4,4 +4,4 @@
     function productCreateController() {
 
     }
-})(angular.module('products.module'));
+})(angular.module('product.module'));

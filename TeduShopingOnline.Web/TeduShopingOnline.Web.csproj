@@ -176,10 +176,12 @@
   <ItemGroup>
     <Content Include="Assets\Admin\app\components\home\homeView.html" />
     <Content Include="Assets\Admin\app\components\home\homeController.js" />
-    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesAddController.html" />
-    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesView.html" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryAddController.html" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.html" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.html" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.js" />
-    <Content Include="Assets\Admin\app\components\products\products.module.js" />
+    <Content Include="Assets\Admin\app\components\products\product.module.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateController.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateView.html" />
     <Content Include="Assets\Admin\app\components\products\productUpdateView.html" />
@@ -4451,8 +4453,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Assets\Admin\app\components\product-categories\product-categories.module.js" />
-    <Content Include="Assets\Admin\app\components\product-categories\productCategoriesAddController.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\product-category.module.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryAddController.js" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -4653,7 +4655,6 @@
     <Content Include="Scripts\plugins\bootbox\package.json" />
     <Content Include="Scripts\plugins\bootbox\README.md" />
     <Content Include="Views\Account\Changepassword.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Scripts\plugins\angular-ui-router\.bower.json" />
     <Content Include="Scripts\plugins\angular-ui-router\artifacts.json" />
     <Content Include="Scripts\plugins\angular-ui-router\bower.json" />
@@ -4738,6 +4739,7 @@
     <Content Include="Scripts\plugins\toastr\toastr.js.map" />
     <Content Include="Scripts\plugins\toastr\toastr.less" />
     <Content Include="Scripts\plugins\toastr\toastr.scss" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

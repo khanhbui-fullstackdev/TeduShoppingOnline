@@ -3,8 +3,8 @@
 (function () {
     angular.module('teduShoppingOnline.module', [
         'common.module',
-        'products.module',
-        'product-categories.module'
+        'product.module',
+        'product-category.module'
     ]).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'consts'];

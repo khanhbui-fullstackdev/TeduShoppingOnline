@@ -4,4 +4,4 @@
     function productsController() {
 
     }
-})(angular.module('products.module'));
+})(angular.module('product.module'));

@@ -1,6 +1,8 @@
 ﻿/// <reference path="../../shared/services/notificationservice.js" />
 
 (function (app) {
+    'use strict';
+
     app.controller('productCategoriesController', productCategoriesController)
 
     productCategoriesController.$inject = ['$scope', 'apiService', 'consts','notificationService'];
@@ -40,9 +42,9 @@
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
             }, function (error) {
-                console.log('Error:' + error.message);
+                console.log('Error:' + error);
             });
         }
         $scope.getProductCategories();
     }
-})(angular.module('product-categories.module')); // register namespace (register module)
+})(angular.module('product-category.module')); // register namespace (register module)
