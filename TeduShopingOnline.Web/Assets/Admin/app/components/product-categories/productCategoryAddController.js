@@ -49,6 +49,10 @@
                 function (error) {
                     notificationService.error(error);
                 });
+        };
+
+        function updateProductCategory(categoryId) {
+            
         }
     }
 

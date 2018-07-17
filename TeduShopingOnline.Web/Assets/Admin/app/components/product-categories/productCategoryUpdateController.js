@@ -17,7 +17,7 @@
         //function
         $scope.updateProductCategory = updateProductCategory;
 
-        function getProductCategoryById() {            
+        function getProductCategoryById() {
             apiService.get(consts.webApi.productCategory.getProductCategoryById + '/' + $stateParams.id, null,
                 function (result) {
                     $scope.productCategory = result.data;
