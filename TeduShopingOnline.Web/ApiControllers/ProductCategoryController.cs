@@ -49,7 +49,7 @@ namespace TeduShopingOnline.Web.ApiControllers
             });
         }
 
-        [Route("get-all-product-category")]
+        [Route("get-all-product-categories")]
         [HttpGet]
         public HttpResponseMessage GetAllProductCategory(HttpRequestMessage httpRequestMessage, string keyword, int page, int pageSize = 25)
         {

@@ -176,11 +176,11 @@
   <ItemGroup>
     <Content Include="Assets\Admin\app\components\home\homeView.html" />
     <Content Include="Assets\Admin\app\components\home\homeController.js" />
-    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.html" />
-    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.js" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoryAddController.html" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.html" />
     <Content Include="Assets\Admin\app\components\product-categories\productCategoriesController.js" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.html" />
+    <Content Include="Assets\Admin\app\components\product-categories\productCategoryUpdateController.js" />
     <Content Include="Assets\Admin\app\components\products\product.module.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateController.js" />
     <Content Include="Assets\Admin\app\components\products\productCreateView.html" />

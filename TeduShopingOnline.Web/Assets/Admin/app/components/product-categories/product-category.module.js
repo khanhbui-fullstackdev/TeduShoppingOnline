@@ -21,7 +21,7 @@
 
         var productCategoryUpdateConfig = {
             url: '/product-category/update/:id',
-            teamplateUrl: consts.components.productCategories + 'productCategoryUpdateController.html',
+            templateUrl: consts.components.productCategories + 'productCategoryUpdateController.html',
             controller: 'productCategoryUpdateController'
         };
 

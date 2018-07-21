@@ -30,7 +30,7 @@
         webApi: {
             productCategory: {
                 api: productCategoryApi,               
-                getAllProductCategories: productCategoryApi + 'get-all-product-category',
+                getAllProductCategories: productCategoryApi + 'get-all-product-categories',
                 addProductCategory: productCategoryApi + 'add-product-category',
                 updateProductCategory: productCategoryApi + 'update-product-category',
                 getProductCategoryById: productCategoryApi + 'get-product-category-by-id'
